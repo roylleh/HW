@@ -1,0 +1,9 @@
+/*
+ * @Programmer: Mohammad Qureshi
+ * @Project: Programming Assignment #3
+ * @Objective: Use lexical analysis to parse loops and nested loops read in from a file.
+ */
+
+void parse( std::ifstream &iFile );
+void errorCheck( std::string temp );
+void printResults();

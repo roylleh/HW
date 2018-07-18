@@ -1,0 +1,40 @@
+#include <iomanip>
+#include <iostream>
+#include <math.h>
+
+using namespace std;
+
+double D1(double h);
+double D2(double h);
+
+double x = 1;
+double t = pow( 1 / cos(x), 2);
+
+int main()
+{
+	cout << "\n" << "1.7\n\n" << "k\t" << "D1 Error\t" << "D2 Error\n";
+	
+	for(double k = 0; k <= 16; k++)
+	{
+		double h = pow(10, k * -1);
+		
+		cout << k << "\t";
+		cout << scientific;
+		cout << abs( D1(h) - t ) << "\t";
+		cout << abs( D2(h) - t ) << "\n";
+		cout << defaultfloat;
+	}
+	
+	cout << "\n";
+	return 0;
+}
+
+double D1(double h)
+{
+	return ( tan(x + h) - tan(x) ) / h;
+}
+
+double D2(double h)
+{
+	return ( tan(x + h) - tan(x - h) ) / (2 * h);
+}
